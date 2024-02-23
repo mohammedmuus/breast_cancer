@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Prediction Form</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/styletwo.css">
+
+    <link href="https://fonts.googleapis.com/css?family=AachenDEEMed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <nav>
+        <a href="#" id="home">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Resources
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original">Dataset</a>
+                <a href="https://www.cancer.gov/types/breast">Cancer Information</a>
+            </div>
+        </div>
+        <a href="#footer" id="contact">Contact</a>
+    </nav>
+
+
+    <div class="container">
+        <h1>Cancer Prediction</h1>
+        <h3>(Range: 1 to 10)</h3>
+        <form id="predictionForm" onsubmit="event.preventDefault(); predictCancer();">
+            <!-- Use a loop in JavaScript to generate options dynamically -->
+            <script>
+                function generateOptions(selectId) {
+                    var select = document.getElementById(selectId);
+                    for (var i = 1; i <= 10; i++) {
+                        var option = document.createElement("option");
+                        option.value = i;
+                        option.text = i;
+                        select.appendChild(option);
+                    }
+                }
+            </script>
+                <div class="form-column">
+                <!-- First 5 input fields -->
+                <label for="clumpThickness">Clump Thickness:</label>
+                <select id="clumpThickness" name="clumpThickness" required></select>
+                <script>generateOptions("clumpThickness");</script>
+
+                <label for="cellSize">Uniformity of Cell Size:</label>
+                <select id="cellSize" name="cellSize" required></select>
+                <script>generateOptions("cellSize");</script>
+
+                <label for="cellShape">Uniformity of Cell Shape:</label>
+                <select id="cellShape" name="cellShape" required></select>
+                <script>generateOptions("cellShape");</script>
+
+                <label for="adhesion">Marginal Adhesion:</label>
+                <select id="adhesion" name="adhesion" required></select>
+                <script>generateOptions("adhesion");</script>
+
+                <label for="epithelialSize">Single Epithelial Cell Size:</label>
+                <select id="epithelialSize" name="epithelialSize" required></select>
+                <script>generateOptions("epithelialSize");</script>
+            </div>
+
+            <div class="form-column">
+                <!-- Last 4 input fields -->
+                <label for="bareNuclei">Bare Nuclei:</label>
+                <select id="bareNuclei" name="bareNuclei" required></select>
+                <script>generateOptions("bareNuclei");</script>
+
+                <label for="chromatin">Bland Chromatin:</label>
+                <select id="chromatin" name="chromatin" required></select>
+                <script>generateOptions("chromatin");</script>
+
+                <label for="nucleoli">Normal Nucleoli:</label>
+                <select id="nucleoli" name="nucleoli" required></select>
+                <script>generateOptions("nucleoli");</script>
+
+                <label for="mitoses">Mitoses:</label>
+                <select id="mitoses" name="mitoses" required></select>
+                <script>generateOptions("mitoses");</script>
+            </div>
+            <!-- Repeat the above block for other features -->
+
+            <!-- Result display and predict button -->
+            <label for="result">Prediction Result:</label>
+        <p id="result">Prediction will be displayed here</p>
+
+            <button type="submit" >Predict</button>
+        </form>
+
+        </div>
+
+        <div class="description">
+            <h2>Features and Descriptions (Range: 1 to 10)</h2>
+            <!-- Descriptions for each feature -->
+            <ul class="feature-list">
+                 <li>
+            <strong>Clump Thickness:</strong>
+            <p>Thickness of cell clusters. Higher values may indicate a higher likelihood of cancer.</p>
+        </li>
+        <li>
+            <strong>Uniformity of Cell Size:</strong>
+            <p>Measure of how similar the sizes of cells are. Greater variation may suggest abnormal cell growth.</p>
+        </li>
+        <li>
+            <strong>Uniformity of Cell Shape:</strong>
+            <p>Similar to cell size, this measures the consistency of cell shapes. Irregular shapes might indicate cancerous changes in the cells.</p>
+        </li>
+        <li>
+            <strong>Marginal Adhesion:</strong>
+            <p>Measures how well cells stick together. Increased adhesion could be linked to cancer, as cancer cells often lose the ability to adhere properly.</p>
+        </li>
+        <li>
+            <strong>Single Epithelial Cell Size:</strong>
+            <p>Evaluates the size of individual epithelial cells. Larger sizes may be associated with cancer, as cancer cells tend to be larger and more irregular.</p>
+        </li>
+        <li>
+            <strong>Bare Nuclei:</strong>
+            <p>Indicates the presence of cell nuclei without surrounding cytoplasm. Higher values might suggest abnormal nuclear morphology, often observed in cancer cells.</p>
+        </li>
+        <li>
+            <strong>Bland Chromatin:</strong>
+            <p>Assesses the appearance of chromatin in the cell nucleus. Increased bland chromatin may be indicative of abnormal cell division, a characteristic of cancer.</p>
+        </li>
+        <li>
+            <strong>Normal Nucleoli:</strong>
+            <p>Evaluates the appearance of nucleoli (small structures in the cell nucleus). Abnormalities may suggest increased cellular activity, a sign of cancer.</p>
+        </li>
+        <li>
+            <strong>Mitoses:</strong>
+            <p>Measures the frequency of cell division. Higher mitotic activity may indicate uncontrolled cell growth, a hallmark of cancer.</p>
+        </li>
+            </ul>
+        </div>
+
+<footer id="footer">
+        <h2>Contacts</h2>
+
+    </footer>
+
+      <script src="/static/script.js"></script>
+        <script src="/static/slideshow.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Breast Cancer</title>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <meta content="" name="keywords">
+      <meta content="" name="description">
+      <!-- Favicons -->
+      <link href="/static/img/favicon.png" rel="icon">
+      <link href="/static/img/apple-touch-icon.png" rel="apple-touch-icon">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+      <!-- Bootstrap CSS File -->
+      <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Libraries CSS Files -->
+      <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+      <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+      <link href="/static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+      <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+      <link href="/static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+      <!-- Lottie Files -->
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <script src="https://unpkg.com/@google/model-viewer"></script>
+      <!-- Main Stylesheet File -->
+      <link href="/static/css/style.css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+   </head>
+
+
+   <body>
+      <!--Header-->
+      <header id="header">
+         <div id="topbar">
+            <div class="call-to-action-inner">
+               <!-- <div class="social-links">
+                  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                  <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                  </div> -->
+            </div>
+         </div>
+         <div class="call-to-action-inner">
+            <div class="logo float-left">
+               <!-- Uncomment below if you prefer to use an image logo -->
+               <!-- <h1 class="text-light"><a href="#intro" class="scrollto"><span>Rapid</span></a></h1> -->
+               <a href="#intro" class="scrollto"><img src="/static/img/logo.png" alt="" class="img-fluid"></a>
+            </div>
+            <nav class="main-nav float-right d-none d-lg-block">
+               <ul>
+                  <li class="active"><a href="#intro">Home</a></li>
+                  <li><a href="#resources">Resources</a></li>
+                  <li><a href="#services">How It Works</a></li>
+                  <li><a href="#footer_end">Contact Us</a></li>
+               </ul>
+            </nav>
+            <!-- .main-nav -->
+         </div>
+      </header>
+      <!-- #header -->
+
+
+
+
+      <!--Intro Section-->
+      <section id="intro" class="clearfix">
+         <div class="call-to-action-inner d-flex h-100">
+            <div class="row justify-content-center align-self-center w-100">
+               <!-- Left Column -->
+               <div class="col-md-6">
+                  <section id="intro_card" class="section-bg">
+                     <div class="call-to-action-inner">
+                        <header class="section-header">
+                           <h3 style="color: white;">Breast Cancer <span style="color: #FF8582;">Prediction</span></h3>
+                           <p>Range (From 1 - 10)</p>
+                        </header>
+                         <div class="form-container">
+                         <form id="predictionForm" onsubmit="event.preventDefault(); predictCancer();">
+                                        <script>
+                function generateOptions(selectId) {
+                    var select = document.getElementById(selectId);
+                    for (var i = 1; i <= 10; i++) {
+                        var option = document.createElement("option");
+                        option.value = i;
+                        option.text = i;
+                        select.appendChild(option);
+                    }
+                }
+            </script>
+
+
+                        <div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="clumpThickness">Clump Thickness:</label>
+      <br>
+      <select id="clumpThickness" name="clumpThickness" class="form-control" required></select>
+      <script>generateOptions("clumpThickness");</script>
+    </div>
+    <div class="form-group">
+      <label for="cellSize">Uniformity of Cell Size:</label>
+      <br>
+      <select id="cellSize" name="cellSize" class="form-control" required></select>
+      <script>generateOptions("cellSize");</script>
+    </div>
+    <div class="form-group">
+      <label for="cellShape">Uniformity of Cell Shape:</label>
+      <br>
+      <select id="cellShape" name="cellShape" class="form-control" required></select>
+      <script>generateOptions("cellShape");</script>
+    </div>
+    <div class="form-group">
+      <label for="adhesion">Marginal Adhesion:</label>
+      <br>
+      <select id="adhesion" name="adhesion" class="form-control" required></select>
+      <script>generateOptions("adhesion");</script>
+    </div>
+    <div class="form-group">
+      <label for="epithelialSize">Single Epithelial Cell Size:</label>
+      <br>
+      <select id="epithelialSize" name="epithelialSize" class="form-control" required></select>
+      <script>generateOptions("epithelialSize");</script>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="bareNuclei">Bare Nuclei:</label>
+      <br>
+      <select id="bareNuclei" name="bareNuclei" class="form-control" required></select>
+      <script>generateOptions("bareNuclei");</script>
+    </div>
+    <div class="form-group">
+      <label for="chromatin">Bland Chromatin:</label>
+      <br>
+      <select id="chromatin" name="chromatin" class="form-control" required></select>
+      <script>generateOptions("chromatin");</script>
+    </div>
+    <div class="form-group">
+      <label for="nucleoli">Normal Nucleoli:</label>
+      <br>
+      <select id="nucleoli" name="nucleoli" class="form-control" required></select>
+      <script>generateOptions("nucleoli");</script>
+    </div>
+    <div class="form-group">
+      <label for="mitoses">Mitoses:</label>
+      <br>
+      <select id="mitoses" name="mitoses" class="form-control" required></select>
+      <script>generateOptions("mitoses");</script>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+                        <div class="row">
+
+                           <button id="showLoaderBtn" type="button"
+                              style="height: 55px;
+                              padding: 10px;
+                              margin-left: 12px;
+                              margin-right: 12px;
+                              background: linear-gradient(to right, #683546, #373A78);
+                              border-radius: 0;
+                              border: none;
+                              transition: background-color 0.3s;"
+                              class="btn btn-primary btn-lg btn-block"
+                              onmouseover="this.style.background='linear-gradient(to right, #2C4563, #373A78)'"
+                              onmouseout="this.style.background='linear-gradient(to right, #683546, #373A78)'">
+                           Check
+                           </button>
+                           <!-- Loader container -->
+                           <div
+                              class="loader-container"
+                              style="width: 200px;
+                              height: 200px;
+                              background-color: #333D4E;
+                              border-radius: 20px;
+                              padding: 15px;
+                              box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;">
+                              <lottie-player
+                                 src="https://lottie.host/1603dde1-5b96-45f2-8300-a2a60344bed6/DLcox73aMT.json"
+                                 background="transparent"
+                                 speed="1"
+                                 style="width: 100%; height: 100%;"
+                                 loop autoplay>
+                              </lottie-player>
+                           </div>
+                        </div>
+                       </form>
+                         </div>
+                     </div>
+                  </section>
+               </div>
+               <!-- Right Column -->
+               <div class="col-md-6">
+                  <section id="intro_card" class="section-bg h-100">
+                     <div class="call-to-action-inner d-flex flex-column justify-content-between h-100">
+                        <header class="section-header">
+                           <h3 style="color: white;">Cancer <span style="color: #FF8582;">Prediction</span></h3>
+                           <p>Empowering individuals with early cancer prediction, paving the path towards proactive health management and improved outcomes.</p>
+                        </header>
+                        <iframe src="https://lottie.host/embed/4e487bce-a28d-4326-b0f7-6f521fe11117/0rO3hrdvlW.json" style="border: none; width: 100%; height: 100%;"></iframe>
+                        <div class="row">
+                           <div id="output_result_div" class="col-md-12 d-flex justify-content-center">
+                              <!-- Centering the image -->
+                              <img src="/static/img/high_risk.svg" alt="" id="img-fluid-output" style="max-width: 100%; height: auto;">
+                               <img src="/static/img/low_risk.svg" alt="" id="img-fluid-output" style="max-width: 100%; height: auto;">
+                           </div>
+                        </div>
+                     </div>
+                  </section>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- #intro -->
+
+
+
+
+
+      <!--Resources-->
+      <section id="resources" style="background-color: #17212F;" >
+         <div class="call-to-action-inner">
+            <header class="section-header">
+               <h3 style="color: white;">Resources <span style="color: #FF8582;"></span></h3>
+               <p>Get information on the model and cancer data in the links below
+               </p>
+            </header>
+            <div class="row">
+               <div class="col-md-6" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/virus.svg" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original" target="_blank">UCI Data Set</a></h4>
+                     <p class="description text-center">Breast Cancer(Diagnostic) Data Set</p>
+                  </div>
+               </div>
+               <div class="col-md-6" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/virus.svg" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="https://www.cancer.gov/types/breast" target="_blank">Breast Cancer News</a></h4>
+                     <p class="description text-center">Stay updated with cancer Information</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- End Resources -->
+
+
+
+
+
+      <!--How It Works-->
+      <section id="services" class="section-bg">
+         <div class="call-to-action-inner">
+            <header class="section-header">
+               <h3 style="color: white;">How <span style="color: #FF8582;">It</span> Works</h3>
+               <p>The determining factors of breast cancer play a crucial role in shaping the functionality of the model. These factors carry significant medical importance, serving as foundational elements utilized by the model for analyzing and predicting the likelihood of cancer occurrence.
+               </p>
+            </header>
+            <div class="row">
+               <div class="col-md-6 col-lg-3" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/cell.png" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="#">Clump Thickness</a></h4>
+                     <p class="description text-center">Thickness of cell clusters. Higher values may indicate a higher likelihood of cancer.</p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-3" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/cell.png" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="#">Uniformity of Cell Size</a></h4>
+                     <p class="description text-center">Measure of how similar the sizes of cells are. Greater variation may suggest abnormal cell growth.</p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-3" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/cell.png" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="#">Uniformity of Cell Shape</a></h4>
+                     <p class="description text-center">Similar to cell size, this measures the consistency of cell shapes. Irregular shapes might indicate cancerous changes in the cells.</p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-3" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/cell.png" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="#">Marginal Adhesion</a></h4>
+                     <p class="description text-center">Measures how well cells stick together. Increased adhesion could be linked to cancer, as cancer cells often lose the ability to adhere properly.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6 col-lg-3" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/cell.png" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="#">Single Epithelial Cell Size</a></h4>
+                     <p class="description text-center">Evaluates the size of individual epithelial cells. Larger sizes may be associated with cancer, as cancer cells tend to be larger and more irregular.</p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-3" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/cell.png" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="#">Bare Nuclei</a></h4>
+                     <p class="description text-center">Indicates the presence of cell nuclei without surrounding cytoplasm. Higher values might suggest abnormal nuclear morphology, often observed in cancer cells.</p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-3" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/cell.png" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="#">Bland Chromatin</a></h4>
+                     <p class="description text-center">Assesses the appearance of chromatin in the cell nucleus. Increased bland chromatin may be indicative of abnormal cell division, a characteristic of cancer.</p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-lg-3" data-wow-duration="1.4s">
+                  <div class="box">
+                     <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                           <!-- Centering the image -->
+                           <img src="/static/img/cell.png" alt="" id="img-fluid-output" style="max-width: 30%; height: auto;">
+                        </div>
+                     </div>
+                     <h4 class="title text-center"><a href="#">Mitosis</a></h4>
+                     <p class="description text-center">Measures the frequency of cell division. Higher mitotic activity may indicate uncontrolled cell growth, a hallmark of cancer.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- End How It Works -->
+
+
+
+
+      <!-- Footer -->
+      <section id="footer_end">
+         <footer style="background-color: #17212F;" class="footer-14398 section-bg">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6 text-md-left">
+                <ul class="list-unstyled link-menu nav-left">
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">US</a></li>
+                    <li><a href="#">Copyright ©</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 text-md-right">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mohd_muus?igsh=dmNxcHJqdGZ3eWJ2" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/mohamed-mustafa-4a5913136" class="instagram"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p><small>&copy; <span id="currentYear"></span> Your Website Name. All rights reserved.</small></p>
+            </div>
+            <div class="col-md-5 text-right">
+                <div class="loader-container" style="background-color: #17212F; padding: 15px; border-radius: 20px;">
+                    <lottie-player src="https://lottie.host/1603dde1-5b96-45f2-8300-a2a60344bed6/DLcox73aMT.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Get the current year
+    const currentYear = new Date().getFullYear();
+    // Update the content of the span element with the current year
+    document.getElementById('currentYear').textContent = currentYear;
+</script>
+
+      </section>
+      <!-- end Footer -->
+
+
+
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+      <script src="/static/lib/jquery/jquery.min.js"></script>
+      <script src="/static/lib/jquery/jquery-migrate.min.js"></script>
+      <script src="/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+      <script src="/static/lib/easing/easing.min.js"></script>
+      <script src="/static/lib/mobile-nav/mobile-nav.js"></script>
+      <script src="/static/lib/wow/wow.min.js"></script>
+      <script src="/static/lib/waypoints/waypoints.min.js"></script>
+      <script src="/static/lib/counterup/counterup.min.js"></script>
+      <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+      <script src="/static/lib/isotope/isotope.pkgd.min.js"></script>
+      <script src="/static/lib/lightbox/js/lightbox.min.js"></script>
+      <!-- Contact Form JavaScript File -->
+      <!-- <script src="contactform/contactform.js"></script> -->
+      <script src="/static/js/main.js"></script>
+   <script src="/static/script.js"></script>
+
+
+
+
+   </body>
+</html>
